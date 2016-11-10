@@ -8,6 +8,6 @@ module.exports = async function (contents) {
     this.cacheable();
     const fileName = path.basename(this.resourcePath);
     const callback = this.async();
-    const result = await processTinyPng(contents, fileName);
+    const result = await processTinyPng(contents, fileName) || contents;
     callback(null, result);
 };

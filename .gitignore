@@ -89,6 +89,4 @@ fabric.properties
 .idea/tinypng-loader.iml
 .idea/tinypng-loader.time
 .idea/typescript-compiler.xml
-
-
 *.map
