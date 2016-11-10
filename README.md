@@ -1,10 +1,12 @@
+# Under alpha testing, complete unit testing and will release soon.
+
 # tinypng-loader
 
 ##Introduction
 PNG is useful because it's the only widely supported format that can store partially transparent images.
 When app moves to production stage, image compression is essential. However, according to my experience using
 such as gulp-image, imagemin-webpack, most of them relied on optipng plugin. This compression algorithm only help reduce
-around 5%-10%. ![tinypng.com](https://tinypng.com) uses smart lossy compression techniques to reduce the file size of PNG files
+around 5%-10%. [tinypng.com](https://tinypng.com) uses smart lossy compression techniques to reduce the file size of PNG files
 with around <b>60%-70%</b> file size reduction.
 
 ###Advantage
