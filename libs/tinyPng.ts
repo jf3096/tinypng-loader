@@ -37,7 +37,7 @@ class TinyPng implements ITinyPng {
         const headers = {
             'User-Agent': `QQBrowser`
         };
-        const body = new Buffer(contents, 'base64');
+        const body = contents;
         return new Promise((resolve, reject) => {
             request({url: shrinkUrl, method, headers, body}, (error: any, response: http.IncomingMessage, body: string) => {
                 if (error) {
@@ -63,6 +63,7 @@ class TinyPng implements ITinyPng {
                     reject(result);
                     return;
                 }
+
                 resolve(JSON.parse(body));
             });
         });

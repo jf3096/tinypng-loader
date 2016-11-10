@@ -5,7 +5,7 @@
 const gulp = require('gulp');
 const gulpTinyPng = require('./gulp/index');
 gulp.task('tinypng', (cb) => {
-    gulp.src(`test/img/**/*.png`)
+    gulp.src(`test/img/**/*`)
         .pipe(gulpTinyPng())
         .pipe(gulp.dest('test/dist'))
         .on('end', cb);

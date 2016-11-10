@@ -11,7 +11,7 @@ class TinyPng {
         const headers = {
             'User-Agent': `QQBrowser`
         };
-        const body = new Buffer(contents, 'base64');
+        const body = contents;
         return new Promise((resolve, reject) => {
             request({ url: shrinkUrl, method, headers, body }, (error, response, body) => {
                 if (error) {
