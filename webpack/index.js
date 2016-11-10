@@ -17,7 +17,7 @@ module.exports = function (contents) {
         this.cacheable();
         const fileName = path.basename(this.resourcePath);
         const callback = this.async();
-        const result = yield index_1.default(contents, fileName);
+        const result = (yield index_1.default(contents, fileName)) || contents;
         callback(null, result);
     });
 };
