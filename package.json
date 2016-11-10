@@ -1,0 +1,20 @@
+{
+  "name": "tinypng-loader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "filesize": "^3.3.0"
+  },
+  "dependencies": {
+    "loader-utils": "^0.2.16"
+  }
+}

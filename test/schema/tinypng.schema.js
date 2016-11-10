@@ -1,0 +1,52 @@
+"use strict";
+exports.uploadResponseSchema = {
+    properties: {
+        input: {
+            type: 'object',
+            required: true,
+            properties: {
+                size: {
+                    type: 'integer',
+                    required: true
+                },
+                type: {
+                    type: 'string',
+                    pattern: '^image/png$',
+                    required: true
+                },
+            }
+        },
+        output: {
+            type: 'object',
+            required: true,
+            properties: {
+                size: {
+                    type: 'integer',
+                    required: true
+                },
+                type: {
+                    type: 'string',
+                    pattern: '^image/png$',
+                    required: true
+                },
+                width: {
+                    type: 'number',
+                    required: true
+                },
+                height: {
+                    type: 'number',
+                    required: true
+                },
+                ratio: {
+                    type: 'number',
+                    required: true
+                },
+                url: {
+                    type: 'string',
+                    required: true
+                }
+            }
+        }
+    }
+};
+//# sourceMappingURL=tinypng.schema.js.map

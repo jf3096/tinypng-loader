@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/3a4bdab25ba029be91c671276e1661512cb37b65/text-encoding/text-encoding.d.ts",
+    "raw": "registry:dt/text-encoding#0.0.0+20160325124532",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/3a4bdab25ba029be91c671276e1661512cb37b65/text-encoding/text-encoding.d.ts"
+  }
+}

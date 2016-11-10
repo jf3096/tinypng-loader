@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/7cc38a3274cba841b772606de07534768e86749c/revalidator/revalidator.d.ts",
+    "raw": "registry:dt/revalidator#0.0.0+20160906133248",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/7cc38a3274cba841b772606de07534768e86749c/revalidator/revalidator.d.ts"
+  }
+}

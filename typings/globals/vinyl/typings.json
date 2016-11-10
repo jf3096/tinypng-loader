@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/5f34eea83b427afc487968265dc6b5884aac5f33/vinyl/vinyl.d.ts",
+    "raw": "registry:dt/vinyl#1.2.0+20160924121322",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/5f34eea83b427afc487968265dc6b5884aac5f33/vinyl/vinyl.d.ts"
+  }
+}

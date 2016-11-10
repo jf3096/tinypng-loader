@@ -1,0 +1,20 @@
+{
+  "dependencies": {},
+  "globalDependencies": {
+    "chai": "registry:dt/chai#3.4.0+20160601211834",
+    "chalk": "registry:dt/chalk#0.4.0+20160317120654",
+    "filesize": "registry:dt/filesize#3.2.1+20160412140448",
+    "form-data": "registry:dt/form-data#0.0.0+20160724024111",
+    "gulp": "registry:dt/gulp#3.8.0+20160907112908",
+    "gulp-util": "registry:dt/gulp-util#0.0.0+20160316155526",
+    "mocha": "registry:dt/mocha#2.2.5+20160720003353",
+    "node": "registry:dt/node#6.0.0+20161019125345",
+    "orchestrator": "registry:dt/orchestrator#0.0.0+20160316155526",
+    "q": "registry:dt/q#0.0.0+20161004185634",
+    "request": "registry:dt/request#0.0.0+20160726020908",
+    "revalidator": "registry:dt/revalidator#0.0.0+20160906133248",
+    "text-encoding": "registry:dt/text-encoding#0.0.0+20160325124532",
+    "through2": "registry:dt/through2#2.0.0+20160926145203",
+    "vinyl": "registry:dt/vinyl#1.2.0+20160924121322"
+  }
+}
