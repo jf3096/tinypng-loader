@@ -1,6 +1,6 @@
 {
   "name": "tinypng-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "webpack/index.js",
   "directories": {
@@ -18,5 +18,9 @@
     "gulp-util": "^3.0.7",
     "loader-utils": "^0.2.16",
     "request": "^2.78.0"
-  }
+  },
+  "scripts": {
+    "gen-typings": "tsc --declaration *.ts"
+  },
+  "typings": "./dist/index.d.ts"
 }
