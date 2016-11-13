@@ -1,8 +1,5 @@
-# Under alpha testing, complete unit testing and will release soon.
-
 # tinypng-loader
 
-##Introduction
 PNG is useful because it's the only widely supported format that can store partially transparent images.
 When app moves to production stage, image compression is essential. However, according to my experience using
 such as gulp-image, imagemin-webpack, most of them relied on optipng plugin. This compression algorithm only help reduce
@@ -63,3 +60,9 @@ Here is a normal case if you use this library correctly
 
 Any errors occured will be logged in console
 ![alt tag](/git-img/error.png)
+
+### Roadmap
+Due to single thread for gulp/webpack, the upload and download might be slow as each image processes optimization in a sequence.
+The speed is acceptable as this library mean to be used in production stage. Thus
+if anyone wants to make it process faster, please <b>star it</b> to show me your support.
+I would like to add a <b>concurrent queue worker</b> to support concurrent upload/download.
