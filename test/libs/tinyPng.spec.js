@@ -35,4 +35,4 @@ describe('index', () => {
         });
     });
 });
-//# sourceMappingURL=index.spec.js.map
+//# sourceMappingURL=tinyPng.spec.js.map

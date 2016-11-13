@@ -11,7 +11,7 @@ exports.uploadResponseSchema = {
                 },
                 type: {
                     type: 'string',
-                    pattern: '^image/png$',
+                    pattern: '^image\/(png|jpe?g)$',
                     required: true
                 },
             }
@@ -26,7 +26,7 @@ exports.uploadResponseSchema = {
                 },
                 type: {
                     type: 'string',
-                    pattern: '^image/png$',
+                    pattern: '^image\/(png|jpe?g)$',
                     required: true
                 },
                 width: {

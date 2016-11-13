@@ -13,7 +13,7 @@ export const uploadResponseSchema: JSONSchema<IUploadResponse> = {
                 },
                 type: {
                     type: 'string',
-                    pattern: '^image/png$',
+                    pattern: '^image\/(png|jpe?g)$',
                     required: true
                 },
             }
@@ -28,7 +28,7 @@ export const uploadResponseSchema: JSONSchema<IUploadResponse> = {
                 },
                 type: {
                     type: 'string',
-                    pattern: '^image/png$',
+                    pattern: '^image\/(png|jpe?g)$',
                     required: true
                 },
                 width: {
@@ -50,4 +50,4 @@ export const uploadResponseSchema: JSONSchema<IUploadResponse> = {
             }
         }
     }
-}
+};

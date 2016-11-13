@@ -19,7 +19,7 @@ interface ITinypngErrorLoggerParams {
 export function tinypngLogger(params: ITinypngLoggerParams) {
     const {fileName, beforeSize, afterSize} = params;
     const reducedSize = beforeSize - afterSize;
-    const reducedRatio = Math.round(reducedSize / beforeSize * 100);
+    const reducedRatio = Math.round(reducedSize / beforeSize * 100) || 0;
     gutil.log(
         `${chalk.green('✔ ')} ${fileName} ${chalk.gray(' ->')} before = ${chalk.yellow(fileSize(beforeSize))} after = ${chalk.cyan(fileSize(afterSize))} reduced = ${chalk.green.underline(fileSize(reducedSize))} (${reducedRatio}%)`
     );

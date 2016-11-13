@@ -1,6 +1,6 @@
 {
   "name": "tinypng-loader",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "webpack/index.js",
   "directories": {
@@ -9,7 +9,8 @@
   "author": "Ailun She",
   "license": "MIT",
   "devDependencies": {
-    "filesize": "^3.3.0"
+    "filesize": "^3.3.0",
+    "gulp": "^3.9.1"
   },
   "dependencies": {
     "chalk": "^1.1.3",
