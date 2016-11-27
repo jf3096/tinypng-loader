@@ -6,7 +6,7 @@ such as gulp-image, imagemin-webpack, most of them relied on optipng plugin. Thi
 around 5%-10%. [tinypng.com](https://tinypng.com) uses smart lossy compression techniques to reduce the file size of PNG/JP(E)G files
 with around <b>60%-70%</b> file size reduction.
 
-Here is a command (line way)[https://github.com/jf3096/tinypng-loader-cli] if you just want to quickly use it without any coding.
+Here is a [command line way](https://github.com/jf3096/tinypng-loader-cli) if you just want to quickly use it without any coding.
 
 ### Advantage
 By compare to other tinypng library, this library use a tinypng "loophole" API to compress images.
