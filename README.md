@@ -35,8 +35,8 @@ npm install tinypng-loader --save-dev
 ```javascript
     var gulp = require('gulp');
     var gulpTinyPng = require('tinypng-loader/gulp/index');
-    gulp.task('tinypng', (cb) => {
-        gulp.src(`test/img/**/*.png`)
+    gulp.task('tinypng', function(cb) {
+        gulp.src('test/img/**/*.png')
             .pipe(gulpTinyPng())
             .pipe(gulp.dest('test/dist'))
             .on('end', cb);
