@@ -1,10 +1,11 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Created by allen on 2016/11/9.
  */
-const gutil = require('gulp-util');
-const chalk = require('chalk');
-const fileSize = require('filesize');
+const gutil = require("gulp-util");
+const chalk = require("chalk");
+const fileSize = require("filesize");
 function tinypngLogger(params) {
     const { fileName, beforeSize, afterSize } = params;
     const reducedSize = beforeSize - afterSize;

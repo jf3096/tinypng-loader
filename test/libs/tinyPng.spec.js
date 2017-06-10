@@ -1,12 +1,13 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Created by allen on 2016/11/3.
  */
-const fs = require('fs');
-const path = require('path');
-const tinyPng_1 = require('../../libs/tinyPng');
-const tinypng_schema_1 = require('../schema/tinypng.schema');
-const revalidator = require('revalidator');
+const fs = require("fs");
+const path = require("path");
+const tinyPng_1 = require("../../libs/tinyPng");
+const tinypng_schema_1 = require("../schema/tinypng.schema");
+const revalidator = require("revalidator");
 describe('index', () => {
     describe('upload', () => {
         let imgContent = ``;

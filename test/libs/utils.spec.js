@@ -1,6 +1,7 @@
 "use strict";
-const utils_1 = require('../../libs/utils');
-const chai_configuration_1 = require('../chai-configuration');
+Object.defineProperty(exports, "__esModule", { value: true });
+const utils_1 = require("../../libs/utils");
+const chai_configuration_1 = require("../chai-configuration");
 /**
  * Created by allen on 2016/11/3.
  */

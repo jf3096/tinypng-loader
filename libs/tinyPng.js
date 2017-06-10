@@ -1,9 +1,10 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Created by allen on 2016/11/3.
  */
-const request = require('request');
-const stream_1 = require('stream');
+const request = require("request");
+const stream_1 = require("stream");
 class TinyPng {
     upload(contents) {
         const method = `post`;
@@ -54,6 +55,5 @@ class TinyPng {
     }
 }
 const tinyPng = new TinyPng();
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = tinyPng;
 //# sourceMappingURL=tinyPng.js.map

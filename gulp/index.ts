@@ -6,9 +6,7 @@ import TransformCallback = require('through2');
 import FlushCallback = require('through2');
 import File = require('vinyl');
 
-
 type TransformCallback = (err?: any, data?: any) => void;
-
 
 const PLUGIN_NAME = 'gulp-tinypng';
 
@@ -27,7 +25,7 @@ function bufferOnly(callback: Function) {
 
     return () => through.obj((file, encoding, cb: TransformCallback) => {
         if (file.isNull()) {
-            return callback(null, file);
+            cb();
         }
         if (file.isStream()) {
             this.emit('error', new PluginError(PLUGIN_NAME, 'index.ts: tinypng does not support stream'));
@@ -44,7 +42,7 @@ function bufferOnly(callback: Function) {
     });
 }
 
-const gulpTinyPng = bufferOnly(async(file, encoding, cb) => {
+const gulpTinyPng = bufferOnly(async (file, encoding, cb) => {
     const contents = file.contents;
     const fileName = file.relative;
     file.contents = await processTinyPng(contents, fileName) || contents;

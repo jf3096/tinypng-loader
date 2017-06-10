@@ -1,8 +1,9 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Created by allen on 2016/11/3.
  */
-const text_encoding_1 = require('text-encoding');
+const text_encoding_1 = require("text-encoding");
 function string2Uint8array(content) {
     if (content === null || content === undefined || content === ``) {
         return null;
