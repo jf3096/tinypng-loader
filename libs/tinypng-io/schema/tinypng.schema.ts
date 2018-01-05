@@ -1,5 +1,5 @@
 import JSONSchema = Revalidator.JSONSchema;
-import {IUploadResponse} from '../../libs/tinyPng';
+import {IUploadResponse} from '../interface';
 
 export const uploadResponseSchema: JSONSchema<IUploadResponse> = {
     properties: {

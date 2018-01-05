@@ -1,6 +1,3 @@
-/**
- * Created by allen on 2016/11/9.
- */
 import * as gutil from 'gulp-util';
 import * as chalk from 'chalk';
 import * as fileSize from 'filesize';

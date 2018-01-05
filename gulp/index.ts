@@ -1,9 +1,8 @@
-import * as through from 'through2';
+import * as through from 'through2-concurrent';
 import {PluginError} from 'gulp-util';
-import processTinyPng from '../libs/index';
-import {tinypngLogger} from '../libs/cli';
+import {tinypngErrorLogger, tinypngLogger} from '../libs/cli';
+import processTinyPng from '../libs';
 import TransformCallback = require('through2');
-import FlushCallback = require('through2');
 import File = require('vinyl');
 
 type TransformCallback = (err?: any, data?: any) => void;
@@ -23,7 +22,7 @@ function bufferOnly(callback: Function) {
         }
     }
 
-    return () => through.obj((file, encoding, cb: TransformCallback) => {
+    return ({maxConcurrency = 10}) => through.obj({maxConcurrency}, (file, encoding, cb: TransformCallback) => {
         if (file.isNull()) {
             cb();
         }
@@ -33,19 +32,27 @@ function bufferOnly(callback: Function) {
         } else if (file.isBuffer()) {
             callback(file, encoding, decorateTransformCallback(file, cb));
         }
-    }, () => {
+    }, (callback) => {
         tinypngLogger({
             fileName: `SUMMARY`,
             beforeSize: totalSize,
             afterSize: optimizedSize
         });
+        callback();
     });
 }
 
 const gulpTinyPng = bufferOnly(async (file, encoding, cb) => {
     const contents = file.contents;
     const fileName = file.relative;
-    file.contents = await processTinyPng(contents, fileName) || contents;
+    try {
+        file.contents = await processTinyPng(contents, file);
+    } catch (e) {
+        tinypngErrorLogger({
+            fileName: fileName,
+            errorMessage: e.message,
+        });
+    }
     cb();
 });
 

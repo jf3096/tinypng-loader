@@ -7,10 +7,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const through = require("through2");
+const through = require("through2-concurrent");
 const gulp_util_1 = require("gulp-util");
-const index_1 = require("../libs/index");
 const cli_1 = require("../libs/cli");
+const libs_1 = require("../libs");
 const PLUGIN_NAME = 'gulp-tinypng';
 function bufferOnly(callback) {
     let totalSize = 0;
@@ -22,7 +22,7 @@ function bufferOnly(callback) {
             transformCallback(null, file);
         };
     }
-    return () => through.obj((file, encoding, cb) => {
+    return ({ maxConcurrency = 10 }) => through.obj({ maxConcurrency }, (file, encoding, cb) => {
         if (file.isNull()) {
             cb();
         }
@@ -33,18 +33,27 @@ function bufferOnly(callback) {
         else if (file.isBuffer()) {
             callback(file, encoding, decorateTransformCallback(file, cb));
         }
-    }, () => {
+    }, (callback) => {
         cli_1.tinypngLogger({
             fileName: `SUMMARY`,
             beforeSize: totalSize,
             afterSize: optimizedSize
         });
+        callback();
     });
 }
 const gulpTinyPng = bufferOnly((file, encoding, cb) => __awaiter(this, void 0, void 0, function* () {
     const contents = file.contents;
     const fileName = file.relative;
-    file.contents = (yield index_1.default(contents, fileName)) || contents;
+    try {
+        file.contents = yield libs_1.default(contents, file);
+    }
+    catch (e) {
+        cli_1.tinypngErrorLogger({
+            fileName: fileName,
+            errorMessage: e.message,
+        });
+    }
     cb();
 }));
 module.exports = gulpTinyPng;

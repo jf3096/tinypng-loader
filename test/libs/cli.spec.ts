@@ -1,8 +1,8 @@
+import {tinypngErrorLogger, tinypngLogger} from '../../libs/cli';
+
 /**
  * Created by allen on 2016/11/13.
  */
-import {tinypngLogger, tinypngErrorLogger} from '../../libs/cli';
-
 describe('cli', () => {
     describe(`tinypngLogger`, () => {
         it('parameter(s) <{fileName: Test, beforeSize: null, afterSize: null}> should pass', () => {

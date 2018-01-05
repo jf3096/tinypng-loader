@@ -8,23 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const tinyPng_1 = require("./tinyPng");
 const cli_1 = require("./cli");
-/**
- * Created by allen on 2016/11/9.
- */
-function processTinyPng(contents, fileName) {
-    return __awaiter(this, void 0, void 0, function* () {
-        let result;
+const tinypng_io_1 = require("./tinypng-io");
+const path = require("path");
+const validExts = ['.jpg', '.jpeg', '.png'];
+function processTinyPngErrorProxy(fileName) {
+    return (proxyFunc) => {
         try {
-            const uploadResponse = yield tinyPng_1.default.upload(contents);
-            const targetDownloadUrl = uploadResponse.output.url;
-            result = yield tinyPng_1.default.download(targetDownloadUrl);
-            cli_1.tinypngLogger({
-                fileName,
-                beforeSize: uploadResponse.input.size,
-                afterSize: uploadResponse.output.size
-            });
+            return proxyFunc();
         }
         catch (err) {
             cli_1.tinypngErrorLogger({
@@ -32,7 +23,27 @@ function processTinyPng(contents, fileName) {
                 errorMessage: JSON.stringify(err)
             });
         }
-        return result;
+    };
+}
+function processTinyPng(content, file) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const fileName = file.relative;
+        const ext = path.extname(file.path).toLowerCase();
+        const proxy = processTinyPngErrorProxy(fileName);
+        return yield proxy(() => __awaiter(this, void 0, void 0, function* () {
+            if (!~validExts.indexOf(ext)) {
+                throw { message: `tinypng only support png or jp(e)g. unexpected format = ${ext}` };
+            }
+            const uploadResponse = yield tinypng_io_1.default.upload({ content });
+            const targetDownloadUrl = uploadResponse.output.url;
+            const result = yield tinypng_io_1.default.download(targetDownloadUrl);
+            cli_1.tinypngLogger({
+                fileName,
+                beforeSize: uploadResponse.input.size,
+                afterSize: uploadResponse.output.size
+            });
+            return result;
+        }));
     });
 }
 exports.default = processTinyPng;

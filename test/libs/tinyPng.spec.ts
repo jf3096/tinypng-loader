@@ -3,38 +3,37 @@
  */
 import * as fs from 'fs';
 import * as path from 'path';
-import {IUploadResponse, default as tinyPng} from '../../libs/tinyPng';
-import {uploadResponseSchema} from '../schema/tinypng.schema';
-import * as revalidator from 'revalidator';
+import tinyPng from '../../libs/tinypng-io';
+import {expect} from '../chai-configuration';
 
 describe('index', () => {
     describe('upload', () => {
-        let imgContent = ``;
-
-        before(function () {
-            const targetPath = path.resolve(__dirname, '../img/sample2.png');
-            const imgBuffer = fs.readFileSync(targetPath);
-            imgContent = imgBuffer.toString('base64');
+        it('should upload successfully, pass in buffer', () => {
+            const targetPath = path.resolve(__dirname, '../img/sample-03.png');
+            let imgContent = fs.readFileSync(targetPath);
+            return tinyPng.upload({content: imgContent})
         });
 
-        it('should upload successfully', (done) => {
-            tinyPng.upload(imgContent).then((response: IUploadResponse) => {
-                const result = revalidator.validate(response, uploadResponseSchema);
-                result.valid ? done() : done(result.errors);
-            }, (err) => {
-                done(err);
-            })
+        it('should upload successfully, but response invalid data type', (done) => {
+            tinyPng.upload({filename: '../img/invalid-img.gif'}).catch(({message}) => {
+                expect(message).to.be.equal(`{"error":"Unsupported media type","message":"File type is not supported"}`);
+                done();
+            });
         });
     });
 
     describe('download', () => {
-        let downloadUrl = `https://tinypng.com/site/output/aqtf55alr1ah49km.png`;
-        it('should download successfully', (done) => {
-            tinyPng.download(downloadUrl).then(() => {
-                done();
-            }, (err) => {
-                done(err);
-            })
+        it('should download successfully', () => {
+            let downloadUrl = `https://tinypng.com/web/output/fb3ktg0vxtq3wr2ak7b03wywr66wn81g`;
+            return tinyPng.download(downloadUrl)
         });
-    })
+
+        it('should download error, unknown download url', (done) => {
+            let downloadUrl = `https://tinypng.com/web/output/111111`;
+            tinyPng.download(downloadUrl).catch(({message}) => {
+                expect(message).to.be.equal('Request failed with status code 404');
+                done();
+            });
+        });
+    });
 });
