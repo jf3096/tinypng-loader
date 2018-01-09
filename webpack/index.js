@@ -12,14 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Created by allen on 2016/11/9.
  */
 const index_1 = require("../libs/index");
-const path = require("path");
+const fs = require("fs");
+const Vinyl = require("vinyl");
 module.exports.raw = true;
 module.exports = function (contents) {
     return __awaiter(this, void 0, void 0, function* () {
         this.cacheable();
-        const fileName = path.basename(this.resourcePath);
-        const result = (yield index_1.default(contents, fileName)) || contents;
-        this.async()(null, result);
+        return (yield index_1.default(fs.readFileSync(this.resourcePath), new Vinyl({ path: this.resourcePath }))) || contents;
     });
 };
 //# sourceMappingURL=index.js.map

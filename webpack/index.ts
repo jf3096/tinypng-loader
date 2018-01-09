@@ -2,13 +2,12 @@
  * Created by allen on 2016/11/9.
  */
 import processTinyPng from '../libs/index';
-import * as path from 'path';
+import * as fs from 'fs';
+import Vinyl = require('vinyl');
 
 module.exports.raw = true;
 
-module.exports = async function (contents: string) {
+module.exports = async function (contents: any) {
     this.cacheable();
-    const fileName = path.basename(this.resourcePath);
-    const result = await processTinyPng(contents, fileName) || contents;
-    this.async()(null, result);
+    return await processTinyPng(fs.readFileSync(this.resourcePath), new Vinyl({path: this.resourcePath})) || contents;
 };
