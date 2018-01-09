@@ -32,12 +32,16 @@ npm install tinypng-loader --save-dev
 ## Example
 
 ### Gulp
+
+Added maxConcurrency as an option. By default its value is 10.
+** WARNING: due to the limit from tinypng.com, please keep this value under 20.**
+
 ```javascript
     var gulp = require('gulp');
     var gulpTinyPng = require('tinypng-loader/gulp/index');
     gulp.task('tinypng', function(cb) {
         gulp.src('test/img/**/*.png')
-            .pipe(gulpTinyPng())
+            .pipe(gulpTinyPng({maxConcurrency: 10}))
             .pipe(gulp.dest('test/dist'))
             .on('end', cb);
     });
@@ -63,8 +67,10 @@ Here is a normal case if you use this library correctly
 Any errors occured will be logged in console
 ![alt tag](/git-img/error.png)
 
-### Roadmap
-Due to single thread for gulp/webpack, the upload and download might be slow as each image processes optimization in a sequence.
-The speed is acceptable as this library mean to be used in production stage. Thus
-if anyone wants to make it process faster, please <b>star it</b> to show me your support.
-I would like to add a <b>concurrent queue worker</b> to support concurrent upload/download.
+### ChangeLog
+
+## 1.0.7 (2018-01-09)
+
+* bug: due to changes from tinypng api, it won't work for previous I fixed it and completed rewrite this tools.
+* feat: added support for webpack 3.
+* feat: added concurrency support for gulp when for batch processing images which require network download and upload speed.

@@ -1,6 +1,6 @@
 {
   "name": "tinypng-loader",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A tinypng free processor",
   "main": "webpack/index.js",
   "directories": {
