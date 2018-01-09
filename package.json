@@ -6,6 +6,11 @@
   "directories": {
     "test": "test"
   },
+  "files": [
+    "gulp",
+    "webpack",
+    "libs"
+  ],
   "author": "Ailun She",
   "license": "MIT",
   "devDependencies": {
