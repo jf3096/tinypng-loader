@@ -10,9 +10,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = require("axios");
 const revalidator_1 = require("revalidator");
-const tinypng_schema_1 = require("../../test/schema/tinypng.schema");
 const path = require("path");
 const fs = require("fs-extra-promise");
+const tinypng_schema_1 = require("../schema/tinypng.schema");
 class TinyPngIOImpl {
     upload({ content, filename }) {
         return __awaiter(this, void 0, void 0, function* () {

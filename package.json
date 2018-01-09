@@ -26,7 +26,6 @@
     "fs-extra-promise": "^1.0.1",
     "gulp-util": "^3.0.7",
     "loader-utils": "^0.2.16",
-    "request": "^2.78.0",
     "through2-concurrent": "^1.1.1"
   },
   "scripts": {

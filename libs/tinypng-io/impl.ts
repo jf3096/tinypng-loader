@@ -1,9 +1,9 @@
 import {ITinyPngIO, IUploadParams, IUploadResponse} from './interface';
 import axios from 'axios';
 import {validate} from "revalidator";
-import {uploadResponseSchema} from '../../test/schema/tinypng.schema';
 import * as path from 'path';
 import * as fs from 'fs-extra-promise';
+import {uploadResponseSchema} from '../schema/tinypng.schema';
 
 export default class TinyPngIOImpl implements ITinyPngIO {
 
