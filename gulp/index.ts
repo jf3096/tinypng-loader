@@ -22,7 +22,7 @@ function bufferOnly(callback: Function) {
         }
     }
 
-    return ({maxConcurrency = 10}) => through.obj({maxConcurrency}, (file, encoding, cb: TransformCallback) => {
+    return ({maxConcurrency = 10} = {}) => through.obj({maxConcurrency}, (file, encoding, cb: TransformCallback) => {
 
         if (maxConcurrency > 20) {
             console.warn(`tinypng.com has upload limit in the same period of time. so please keep the maxConcurrency under 20.`);

@@ -5,7 +5,6 @@
 /// <reference path="globals/gulp-util/index.d.ts" />
 /// <reference path="globals/gulp/index.d.ts" />
 /// <reference path="globals/mocha/index.d.ts" />
-/// <reference path="globals/node/index.d.ts" />
 /// <reference path="globals/orchestrator/index.d.ts" />
 /// <reference path="globals/q/index.d.ts" />
 /// <reference path="globals/request/index.d.ts" />

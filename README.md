@@ -60,6 +60,31 @@ Added maxConcurrency as an option. By default its value is 10.
     }
 ```
 
+在 `chain loaders` 时，可以在 `options` 中设置指定需要加工的匹配即可：
+
+```javascript
+    ...
+    {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        use: [
+            {
+                loader: require.resolve('url-loader'),
+                options: {
+                    limit: 10000,
+                    name: 'static/media/[name].[hash:8].[ext]',
+                }
+            },
+            {
+                loader: require.resolve('tinypng-loader'),
+                options: {
+                    test: /\.png$/
+                },
+            }
+        ]
+    }
+    ...
+```
+
 ### Screenshot
 Here is a normal case if you use this library correctly
 ![alt tag](/git-img/success.png)
@@ -68,6 +93,11 @@ Any errors occured will be logged in console
 ![alt tag](/git-img/error.png)
 
 ### ChangeLog
+
+## 1.0.9 (2018-01-10)
+
+* bug: fixed gulp in typescript require gulp options, which actually should be optional.
+* feat: optimize webpack logic. added validation constraints for tinypng loaders.
 
 ## 1.0.7 (2018-01-09)
 
