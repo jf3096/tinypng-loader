@@ -68,20 +68,52 @@ Added maxConcurrency as an option. By default its value is 10.
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
         use: [
             {
-                loader: require.resolve('url-loader'),
+                loader: 'url-loader',
                 options: {
                     limit: 10000,
                     name: 'static/media/[name].[hash:8].[ext]',
                 }
             },
             {
-                loader: require.resolve('tinypng-loader'),
+                loader: 'tinypng-loader',
                 options: {
                     test: /\.png$/
                 },
             }
         ]
     }
+    ...
+```
+
+Since such operation requires communication with tinypng.com, therefore I would suggest to use [cache-loader](https://github.com/webpack-contrib/cache-loader)
+which allows to use MD5 to cache the result accordingly.
+
+```javascript
+    ...
+        {
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            use: [
+                {
+                    loader: require.resolve('cache-loader'),
+                    options: {
+                        cacheDirectory: path.resolve('node_modules/.cache-images')
+                    }
+                },
+                {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        name: 'static/media/[name].[hash:8].[ext]',
+                    }
+                },
+                {
+                    loader: 'tinypng-loader',
+                    options: {
+                        test: /\.png$/
+                    },
+                }
+            ]
+        }
     ...
 ```
 
