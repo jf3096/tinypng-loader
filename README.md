@@ -33,8 +33,8 @@ npm install tinypng-loader --save-dev
 
 ### Gulp
 
-Added maxConcurrency as an option. By default its value is 10.
-** WARNING: due to the limit from tinypng.com, please keep this value under 20.**
+Added maxConcurrency as an option. By default its value is 10. <br />
+<strong>WARNING: due to the limit from tinypng.com, please keep this value under 20.</strong>
 
 ```javascript
     var gulp = require('gulp');
@@ -59,8 +59,6 @@ Added maxConcurrency as an option. By default its value is 10.
         ... //end of webpack loader
     }
 ```
-
-在 `chain loaders` 时，可以在 `options` 中设置指定需要加工的匹配即可：
 
 ```javascript
     ...
@@ -119,10 +117,10 @@ which allows to use MD5 to cache the result accordingly.
 
 ### Screenshot
 Here is a normal case if you use this library correctly
-![alt tag](/git-img/success.png)
+![alt tag](./git-img/success.png)
 
 Any errors occured will be logged in console
-![alt tag](/git-img/error.png)
+![alt tag](./git-img/error.png)
 
 ### ChangeLog
 
